@@ -13,7 +13,7 @@ function Footer() {
         <Box className="navFooter"
             component="footer"
             sx={{
-                backgroundColor: '#0039fb',
+                backgroundColor: '#0099fb',
                 p: 0,
             }}
         >

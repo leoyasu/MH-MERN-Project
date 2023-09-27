@@ -38,28 +38,37 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#0039fb' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#0099fb' }}>
       <Container className='navBar' maxWidth="xl">
         <Toolbar disableGutters>
-          <LinkRouter to="/">
-            <LocalHospitalIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
+          <LinkRouter to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Box
               sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                marginRight: '2rem',
               }}
             >
-              DoctorFinder
-            </Typography>
+              <LocalHospitalIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+              <Typography
+                variant="h6"
+                noWrap
+                component="d"
+                sx={{
+                  mr: 2,
+                  display: { xs: 'none', md: 'flex' },
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'white',
+                  textDecoration: 'none',
+                }}
+              >
+                DoctorFinder
+              </Typography>
+            </Box>
           </LinkRouter>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
