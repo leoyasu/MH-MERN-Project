@@ -1,6 +1,5 @@
 import './styles/App.css';
 import ResponsiveAppBar from './components/appBar';
-import MainSwiper from './components/swiper'
 import Footer from './components/footer'
 import { Routes, Route } from 'react-router-dom';
 import ReservationsContainer from './components/reservations'

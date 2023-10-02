@@ -4,12 +4,9 @@ import 'swiper/css/navigation';
 import '../styles/swiper.css';
 import { Navigation } from 'swiper/modules';
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import 'typeface-open-sans';
-import { Link as LinkRouter } from 'react-router-dom';
 
-function MainSwiper() {
+function MainSwiper1() {
   return (
     <Swiper navigation={true} modules={[Navigation]} className="sw">
       <SwiperSlide>
@@ -32,7 +29,7 @@ function MainSwiper() {
 }
 
 
-export default MainSwiper
+export default MainSwiper1
 
 
 
