@@ -5,6 +5,9 @@
 
 .swiper-slide {
     height: 100vh !important;
+    box-shadow: 1px 0px 20px 6px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 0px 20px 6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 0px 20px 6px rgba(0, 0, 0, 0.75);
 }
 
 .sw {
@@ -13,7 +16,7 @@
     background-repeat: no-repea
 }
 
-.CTA_main_back{
+.CTA_main_back {
     width: 100vw;
     background-size: cover;
     background-repeat: no-repeat;
@@ -73,6 +76,12 @@
     .CTA_main {
         padding-left: 0px;
         background-color: grey;
-        opacity: 0.9;   
+        opacity: 0.9;
+    }
+
+    .CTA_main_back {
+        width: 100vw;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 }

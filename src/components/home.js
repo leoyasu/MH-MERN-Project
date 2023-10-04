@@ -26,7 +26,7 @@ function Home() {
           </LinkRouter>
         </div>
       </div>
-      <Box sx={{ flexGrow: 1, pt: '2px', width: '100vw' }}>
+      <Box sx={{ flexGrow: 1,border: 1, width: '100vw' }}>
         <Grid container spacing={0}>
           <Grid item xs={12} sm={12} md={6}>
             <MainSwiper1 />
