@@ -1,75 +1,78 @@
-*{
+* {
     margin: 0;
     padding: 0;
-  }  
+}
 
 .swiper-slide {
-    width: 100vw;
-    height: 70vh !important;
+    height: 100vh !important;
 }
 
 .sw {
-    width: 100%;
     height: inherit;
     background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    will-change: transform;
+    background-repeat: no-repea
 }
 
-.sw.swiper_main_1 {
-    /* background-image: url('../images/main_swiper_1.jpeg'); */
+.CTA_main_back{
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.CTA_main {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-left: 10rem;
-    height: 70vh;
-    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+    padding-left: 30rem;
+    height: inherit;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.sw.swiper_main_2 {
+.sw.swiper_main_1 {
     background-image: url('../images/main_swiper_2.jpg');
 }
 
-.sw.swiper_main_3 {
+.sw.swiper_main_2 {
     background-image: url('../images/main_swiper_3.png');
 }
 
-.sw.swiper_main_4 {
+.sw.swiper_main_3 {
     background-image: url('../images/main_swiper_4.jpg');
 }
 
-.sw.swiper_main_1 h3 {
-    margin-top: 30px;
-    margin-bottom: 30px;
+.CTA_main h3 {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
     color: rgb(50, 72, 114);
     max-width: 500px;
 }
 
-.sw.swiper_main_1 h5 {
-    margin-bottom: 20px;
+.CTA_main h5 {
+    margin-bottom: 1rem;
 }
 
-.intro_main{
+.intro_main {
     max-width: 500px;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 1.5rem;
 }
 
-.sw.swiper_main_1 .reservation_link > Button {
+.CTA_main .reservation_link>Button {
     width: 13rem;
     height: 4rem;
-    margin-top: 20px;
+    margin-top: 1.5rem;
     font-size: 1.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 
-@media screen and (max-width: 910px) {
-    .sw.swiper_main_1 {
+@media screen and (max-width: 710px) {
+    .CTA_main {
         padding-left: 0px;
+        background-color: grey;
+        opacity: 0.9;   
     }
-  }
+}

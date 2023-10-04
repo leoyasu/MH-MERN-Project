@@ -15,6 +15,7 @@ function Footer() {
             sx={{
                 backgroundColor: '#0099fb',
                 p: 0,
+                width:'100vw'
             }}
         >
             <Container maxWidth="lg">

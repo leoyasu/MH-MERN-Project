@@ -10,17 +10,17 @@ function MainSwiper1() {
   return (
     <Swiper navigation={true} modules={[Navigation]} className="sw">
       <SwiperSlide>
-        <div className="sw swiper_main_2">
+        <div className="sw swiper_main_1">
           <h1>cardiologia</h1>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="sw swiper_main_3">
+        <div className="sw swiper_main_2">
         <h1>pediatria</h1>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="sw swiper_main_4">
+        <div className="sw swiper_main_3">
         <h1>clinica</h1>
         </div>
       </SwiperSlide> 

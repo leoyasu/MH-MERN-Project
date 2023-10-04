@@ -38,7 +38,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#0099fb' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#0099fb', width:'100vw' }}>
       <Container className='navBar' maxWidth="xl">
         <Toolbar disableGutters>
           <LinkRouter to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
