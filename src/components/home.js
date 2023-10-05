@@ -20,9 +20,9 @@ function Home() {
             DoctorFinder offers a wide range of medical services so you can find the right doctor for your needs.
             Our platform allows you to search, compare and book virtual medical appointments conveniently and securely.
           </Typography>
-          <Typography variant="h5" style={{ fontFamily: 'Open Sans' }}> Make your appointment now! </Typography>
+          <Typography variant="h5" style={{ fontFamily: 'Open Sans' }}> Make your appointment! </Typography>
           <LinkRouter className='reservation_link' to='/reservations'>
-            <Button variant="contained" style={{ fontFamily: 'Open Sans' }}>BOOK</Button>
+            <Button variant="contained" style={{ fontFamily: 'Open Sans' }}>BOOK NOW!</Button>
           </LinkRouter>
         </div>
       </div>

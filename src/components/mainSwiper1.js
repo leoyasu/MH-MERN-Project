@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import '../styles/swiper.css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import * as React from 'react';
@@ -23,7 +24,7 @@ function MainSwiper1() {
       <SwiperSlide>
         <div className="sw swiper_main_1">
           <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Cardiology</Typography>
-          <Typography variant="h5" style={{ fontFamily: 'Open Sans' }}>is the medical specialty that focuses on
+          <Typography variant="h6" style={{ fontFamily: 'Open Sans', margin:'2.5rem' }}>is the medical specialty that focuses on
             the heart and the cardiovascular system. Cardiologists are experts in caring for your vital engine,
             ensuring your heart beats strong and healthy, and helping you maintain an active and healthy lifestyle.
           </Typography>
@@ -32,7 +33,7 @@ function MainSwiper1() {
       <SwiperSlide>
         <div className="sw swiper_main_2">
         <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Pediatrics</Typography>
-          <Typography variant="h5" style={{ fontFamily: 'Open Sans' }}>is dedicated to caring for the youngest patients. 
+          <Typography variant="h6" style={{ fontFamily: 'Open Sans', margin:'2.5rem' }}>is dedicated to caring for the youngest patients. 
           Pediatricians are like superheroes of child health, tirelessly working to keep children and teenagers 
           happy and healthy as they grow and explore the world.
           </Typography>
@@ -41,7 +42,7 @@ function MainSwiper1() {
       <SwiperSlide>
         <div className="sw swiper_main_3">
         <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Internal Medicine</Typography>
-          <Typography variant="h5" style={{ fontFamily: 'Open Sans' }}>also known as clinical medicine, forms
+          <Typography variant="h6" style={{ fontFamily: 'Open Sans' , margin:'2.5rem'}}>also known as clinical medicine, forms
            the backbone of healthcare. Internists are the detectives of medicine, solving the mysteries of 
            symptoms and providing accurate diagnoses to treat a wide range of medical conditions.
           </Typography>

@@ -15,12 +15,13 @@ function Footer() {
             sx={{
                 backgroundColor: '#0099fb',
                 p: 0,
+                pt:'5px',
                 width:'100vw'
             }}
         >
             <Container maxWidth="lg">
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4} sx={{ paddingTop: '0 !important' }}>
+                    <Grid item xs={12} sm={4}>
                         <Typography variant="h6" color="white" gutterBottom>
                             About Us
                         </Typography>
@@ -28,7 +29,7 @@ function Footer() {
                             We are DoctorFinder company, dedicated to connect you to the best healthcare service.
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} sm={4} sx={{ paddingTop: '0 !important' }}>
+                    <Grid item xs={12} sm={4}>
                         <Typography variant="h6" color="white" gutterBottom>
                             Contact Us
                         </Typography>
@@ -42,7 +43,7 @@ function Footer() {
                             Phone:  (+54 11) 4759 - 3560
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} sm={4} sx={{ paddingTop: '0 !important' }}>
+                    <Grid item xs={12} sm={4}>
                         <Typography variant="h6" color="rgb(255,255,255)" gutterBottom>
                             Follow Us
                         </Typography>

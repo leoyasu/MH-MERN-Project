@@ -4,16 +4,15 @@
 }
 
 .swiper-slide {
-    height: 100vh !important;
     box-shadow: 1px 0px 20px 6px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 1px 0px 20px 6px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 1px 0px 20px 6px rgba(0, 0, 0, 0.75);
 }
 
 .sw {
-    height: 600px;
+    height: 400px;
     background-size: cover;
-    background-repeat: no-repea
+    background-repeat: no-repeat;
 }
 
 .CTA_main_back {
@@ -35,15 +34,31 @@
 }
 
 .sw.swiper_main_1 {
-    background-image: url('../images/main_swiper_2.jpg');
+    background-image: url('../images/cardiology.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    
 }
 
 .sw.swiper_main_2 {
     background-image: url('../images/main_swiper_3.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
 }
 
 .sw.swiper_main_3 {
     background-image: url('../images/main_swiper_4.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
 }
 
 .CTA_main h3 {
