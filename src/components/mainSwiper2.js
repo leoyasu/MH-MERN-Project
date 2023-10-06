@@ -22,7 +22,7 @@ function MainSwiper2() {
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}  className="sw">
       <SwiperSlide>
-        <div className="sw swiper_main_1">
+        <div className="sw swiper_main_4">
           <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Oncology</Typography>
           <Typography variant="h5" style={{ fontFamily: 'Open Sans' , margin:'2.5rem'}}>is the specialty that focuses on
             the diagnosis and treatment of cancer. Oncologists are warriors against cancer, working to eliminate
@@ -31,7 +31,7 @@ function MainSwiper2() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="sw swiper_main_2">
+        <div className="sw swiper_main_5">
           <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Diabetology</Typography>
           <Typography variant="h5" style={{ fontFamily: 'Open Sans', margin:'2.5rem' }}>it focuses on managing diabetes,
             a chronic condition that affects how your body handles blood sugar. Diabetologists will help you keep your
@@ -40,7 +40,7 @@ function MainSwiper2() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="sw swiper_main_3">
+        <div className="sw swiper_main_6">
           <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Ophthalmology</Typography>
           <Typography variant="h5" style={{ fontFamily: 'Open Sans', margin:'2.5rem' }}>Ophthalmology is dedicated to caring for your eyes.
             Ophthalmologists are guardians of vision, ensuring eye health and helping you maintain clear and bright vision

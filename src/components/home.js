@@ -8,7 +8,6 @@ import Box from '@mui/material/Box';
 import { Link as LinkRouter } from 'react-router-dom';
 
 
-
 function Home() {
   
   return (
