@@ -38,37 +38,38 @@ function Reservations() {
                     </div>
 
 
-                    <Grid container spacing={2} sx={{width:'inherit', m:'1rem'}}>
-                        <Grid item xs={3}>
+                    <Grid container spacing={2} sx={{ width: 'inherit', m: '1rem' }}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3}>
                             <DoctorCard />
                         </Grid>
+
                     </Grid>
                 </div>
             </Box>
