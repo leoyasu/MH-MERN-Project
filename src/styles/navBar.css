@@ -1,5 +1,48 @@
-.navBar {
-    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+.nav_container {
+    width: 100vw;
+    height: 50px;
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.nav_action_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.nav_action_container > button {
+    width: 80%;
+    height: 80%;
+}
+
+.nav_button_responsive {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.nav_menu_responsive {
+    position: relative;
+    top: 50px;
+    right: 0px;
+    width: 200px;
+    height: calc(100vh - 50px);
+    background-color: grey;    
+}
+
+.show {
+    display: flex;
+}
+
+.notShow {
+    display: none;
 }

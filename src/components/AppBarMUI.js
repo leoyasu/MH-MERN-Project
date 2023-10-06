@@ -11,14 +11,21 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+// import AdbIcon from '@mui/icons-material/Adb';
+// import { MDBIcon } from 'mdb-react-ui-kit';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
-import '../styles/navBar.css';
-import { Link as LinkRouter } from 'react-router-dom';
+import '../styles/AppBarMUI.css'
+import { Link as LinkRouter } from 'react-router-dom'
 
-const pages = ['Us', 'Log In', 'medical specialties', 'Join us', 'Contact'];
-const settings = ['Profile', 'Account', 'Log out'];
 
-function ResponsiveAppBar() {
+const pages = [<LinkRouter to="/Profesionals" className="links_router">Profesionals</LinkRouter>,
+               <LinkRouter to="/Staff" className="links_router">Staff</LinkRouter> ,
+               <LinkRouter to="/About_us" className="links_router">About us</LinkRouter>,
+               <LinkRouter to="/Contact_us" className="links_router">Contact us</LinkRouter>,
+               <LinkRouter to="/Appointment" className="links_router"> Appointment </LinkRouter>];
+const settings = ["Profile", "Appointments", "Logout"];
+
+function AppBarMUI() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -38,15 +45,16 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#0039fb' }}>
-      <Container className='navBar' maxWidth="xl">
-        <Toolbar disableGutters>
-          <LinkRouter to="/">
+    <AppBar position="static" sx={{ backgroundColor: '#1E4D7B' }}>
+      <Container maxWidth="xl" className='navContainer'>
+        <Toolbar className='appBar' disableGutters>
+          {/* <LinkRouter to= "/"> */}
             <LocalHospitalIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
             <Typography
               variant="h6"
               noWrap
               component="a"
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -57,9 +65,9 @@ function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-              DoctorFinder
+              Medic
             </Typography>
-          </LinkRouter>
+          {/* </LinkRouter> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -113,9 +121,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            DoctorFinder
+            Medic
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box className="btnContainer" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -128,9 +136,9 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Abrir cuenta">
+            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Pepe Argento" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -161,4 +169,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default AppBarMUI;
