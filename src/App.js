@@ -2,7 +2,7 @@ import './styles/App.css';
 import ResponsiveAppBar from './components/appBar';
 import Footer from './components/footer'
 import { Routes, Route } from 'react-router-dom';
-import ReservationsContainer from './components/reservations'
+import Reservations from './components/reservations'
 import Home from './components/home'
 
 function App() {
@@ -11,10 +11,12 @@ function App() {
       <header className="App-header">
         <ResponsiveAppBar />
       </header>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/reservations' element={<ReservationsContainer />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/reservations' element={<Reservations />} />
+        </Routes>
+      </main>
       <footer>
         <Footer />
       </footer>

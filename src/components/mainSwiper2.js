@@ -24,7 +24,7 @@ function MainSwiper2() {
       <SwiperSlide>
         <div className="sw swiper_main_4">
           <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Oncology</Typography>
-          <Typography variant="h5" style={{ fontFamily: 'Open Sans' , margin:'2.5rem'}}>is the specialty that focuses on
+          <Typography variant="h5" style={{ fontFamily: 'Open Sans' , margin:'2.5rem',textAlign: 'justify'}}>is the specialty that focuses on
             the diagnosis and treatment of cancer. Oncologists are warriors against cancer, working to eliminate
             this disease and offer hope to those facing it.
           </Typography>
@@ -33,7 +33,7 @@ function MainSwiper2() {
       <SwiperSlide>
         <div className="sw swiper_main_5">
           <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Diabetology</Typography>
-          <Typography variant="h5" style={{ fontFamily: 'Open Sans', margin:'2.5rem' }}>it focuses on managing diabetes,
+          <Typography variant="h5" style={{ fontFamily: 'Open Sans', margin:'2.5rem' ,textAlign: 'justify'}}>it focuses on managing diabetes,
             a chronic condition that affects how your body handles blood sugar. Diabetologists will help you keep your
             glucose under control and live a full life despite diabetes.
           </Typography>
@@ -42,7 +42,7 @@ function MainSwiper2() {
       <SwiperSlide>
         <div className="sw swiper_main_6">
           <Typography variant="h3" style={{ fontFamily: 'Open Sans' }}> Ophthalmology</Typography>
-          <Typography variant="h5" style={{ fontFamily: 'Open Sans', margin:'2.5rem' }}>Ophthalmology is dedicated to caring for your eyes.
+          <Typography variant="h5" style={{ fontFamily: 'Open Sans', margin:'2.5rem' ,textAlign: 'justify'}}>Ophthalmology is dedicated to caring for your eyes.
             Ophthalmologists are guardians of vision, ensuring eye health and helping you maintain clear and bright vision
             throughout the years.
           </Typography>
