@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 function DoctorCard() {
     return (
         <>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345,  bgcolor: 'lightblue', border: 1 }}>
                 <CardMedia
                     component="img"
                     alt="avatar"
