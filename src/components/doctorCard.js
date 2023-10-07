@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import avatar from '../images/avatar.jpg'
 import Typography from '@mui/material/Typography';
 
-function DoctorCard() {
+function DoctorCard({ doctor }) {
     return (
         <>
             <Card sx={{ maxWidth: 345,  bgcolor: 'lightblue', border: 1 }}>
@@ -17,15 +17,14 @@ function DoctorCard() {
                     height="200"
                     image={avatar}
                 />
-                <CardContent>
+                <CardContent sx={{
+                    height: '150px'
+                }}>
                     <Typography gutterBottom variant="h5" component="div">
-                        John Smith, MD.
+                    {doctor.name} {doctor.lastName}, MD.
                     </Typography>
                     <Typography variant="body2" color="text.secondary" style={{ fontFamily: 'Open Sans', textAlign: 'justify' }}>
-                        Expert Pediatric Care: Trust our dedicated pediatrician for
-                        compassionate and comprehensive care for your child's health
-                        and well-being. We prioritize your little one's health journey
-                        with personalized attention and expertise.
+                    {doctor.description}
                     </Typography>
                 </CardContent>
                 <CardActions>
