@@ -6,11 +6,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import avatar from '../images/avatar.jpg'
 import Typography from '@mui/material/Typography';
+import { Link as LinkRouter } from 'react-router-dom';
+
 
 function DoctorCard({ doctor }) {
     return (
         <>
-            <Card sx={{ maxWidth: 345,  bgcolor: 'lightblue', border: 1 }}>
+            <Card sx={{ maxWidth: 345, bgcolor: 'lightblue', border: 1 }}>
                 <CardMedia
                     component="img"
                     alt="avatar"
@@ -21,14 +23,30 @@ function DoctorCard({ doctor }) {
                     height: '150px'
                 }}>
                     <Typography gutterBottom variant="h5" component="div">
-                    {doctor.name} {doctor.lastName}, MD.
+                        {doctor.name} {doctor.lastName}, MD.
                     </Typography>
                     <Typography variant="body2" color="text.secondary" style={{ fontFamily: 'Open Sans', textAlign: 'justify' }}>
-                    {doctor.description}
+                        {doctor.description}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Details</Button>
+                    <LinkRouter
+                        className='reservation_link'
+                        to={{
+                            pathname: '/doctorDetails',
+                        }}
+
+                        state= {{name: doctor.name,
+                            lastName: doctor.lastName,
+                            specialty: doctor.specialty,
+                            description: doctor.description,
+                            license: doctor.license,
+                            meetCost: doctor.meetCost,}}
+
+                    >
+                        <Button size="small">Details</Button>
+                    </LinkRouter>
+
                 </CardActions>
             </Card>
         </>
