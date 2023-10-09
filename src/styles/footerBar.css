@@ -1,0 +1,8 @@
+#footer {
+    width: 100%;
+    background-color: #0099fb;
+}
+
+#footer > * {
+    color: white;
+}

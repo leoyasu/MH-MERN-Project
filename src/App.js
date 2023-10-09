@@ -1,6 +1,6 @@
 import './styles/App.css';
 import ResponsiveAppBar from './components/appBar';
-import Footer from './components/footer'
+import FooterBar from './components/footerBar'
 import { Routes, Route } from 'react-router-dom';
 import Reservations from './components/reservations'
 import Home from './components/home'
@@ -20,7 +20,7 @@ function App() {
         </Routes>
       </main>
       <footer>
-        <Footer />
+        <FooterBar />
       </footer>
     </div>
   );
