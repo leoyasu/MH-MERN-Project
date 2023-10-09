@@ -20,7 +20,7 @@ function DoctorCard({ doctor }) {
                     image={avatar}
                 />
                 <CardContent sx={{
-                    height: '150px'
+                    height: '170px'
                 }}>
                     <Typography gutterBottom variant="h5" component="div">
                         {doctor.name} {doctor.lastName}, MD.
@@ -46,7 +46,7 @@ function DoctorCard({ doctor }) {
                             meetCost: doctor.meetCost,}}
 
                     >
-                        <Button size="small" sx={{mt:'1rem'}}>Details</Button>
+                        <Button size="small" sx={{mt:'2rem'}}>Details</Button>
                     </LinkRouter>
                 </CardActions>
             </Card>

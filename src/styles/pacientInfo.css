@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container{
+    display: grid;
+    background-image: url('../images/internalMedicine.jpg');
+	grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+	grid-gap: 20px;
+    padding: 50px 0;
+    justify-content: center;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.grid-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4); 
+}
+
+.grid-item {
+    background: linear-gradient( rgb(249, 251, 252), rgb(198, 205, 221));
+    width: 320px;
+    height: 250px;
+    border: 2px solid black;
+    margin: 5px;
+    text-align: center;
+    color: rgb(5, 38, 65);
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+div.iconConten {
+    width: 90px;
+    height: 90px;
+    margin: 15px auto;
+    background-color: rgb(206, 199, 199);
+    border-radius: 100px;
+}
+
+.iconConten .icon {   
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+}

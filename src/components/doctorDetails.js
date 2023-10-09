@@ -26,7 +26,6 @@ function DoctorDetails() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                opacity: '0.9',
                 pd: '5rem',
             }}
         >
@@ -59,19 +58,19 @@ function DoctorDetails() {
                         objectFit: 'cover',
                     }}
                 />
-                <Typography variant="h4" sx={{ fontFamily: 'Open Sans', mt: '1rem' }}>
+                <Typography variant="h4" sx={{ fontFamily: 'Open Sans', mt: '1rem', color:'black' }}>
                     {name} {lastName}, MD.
                 </Typography>
-                <Typography variant="h5" sx={{ fontFamily: 'Open Sans' }}>
+                <Typography variant="h5" sx={{ fontFamily: 'Open Sans', color:'black' }}>
                     Specialty: {specialty}
                 </Typography>
-                <Typography variant="h6" sx={{ fontFamily: 'Open Sans', textAlign: 'justify', p: '1rem' }}>
+                <Typography variant="h6" sx={{ fontFamily: 'Open Sans', textAlign: 'justify', p: '1rem', color:'black' }}>
                     {description}
                 </Typography>
-                <Typography variant="subtitle1" sx={{ fontFamily: 'Open Sans', mb: '1rem' }}>
+                <Typography variant="subtitle1" sx={{ fontFamily: 'Open Sans', mb: '1rem', color:'black' }}>
                     License: {license}
                 </Typography>
-                <Typography variant="subtitle1" sx={{ fontFamily: 'Open Sans', mb: '1rem' }}>
+                <Typography variant="subtitle1" sx={{ fontFamily: 'Open Sans', mb: '1rem' , color:'black'}}>
                     Cost: $ {meetCost}
                 </Typography>
             </Box>

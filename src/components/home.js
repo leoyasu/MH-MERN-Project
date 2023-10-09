@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Link as LinkRouter } from 'react-router-dom';
-
+import PacientInfo from "./pacientInfo";
 
 function Home() {
   
@@ -35,6 +35,7 @@ function Home() {
           </Grid>
         </Grid>
       </Box>
+      <PacientInfo />
     </>
   )
 }
