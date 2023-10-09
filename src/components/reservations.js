@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -6,15 +5,74 @@ import Typography from '@mui/material/Typography';
 import '../styles/reservations.css';
 import DoctorCard from "./doctorCard";
 import { GetDoctors } from "../service/doctorService";
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+import { styled, alpha } from '@mui/material/styles';
+
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.5),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '300px !important',
+    [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(3),
+        width: 'auto',
+    },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('md')]: {
+            width: '20ch',
+        },
+    },
+}));
+
 
 function Reservations() {
     const [doctors, setDoctors] = useState([]);
+    const [searchValue, setSearchValue] = useState('');
+    const [filteredDoctors, setFilteredDoctors] = useState([]);
 
     useEffect(() => {
         GetDoctors()
-            .then((doctorData) => setDoctors(doctorData))
+            .then((doctorData) => {
+                setDoctors(doctorData);
+                setFilteredDoctors(doctorData);
+            })
             .catch((error) => console.error("Error setting doctors:", error));
     }, []);
+
+    useEffect(() => {
+        const filtered = doctors.filter((doctor) =>
+            doctor.specialty.toLowerCase().startsWith(searchValue.toLowerCase())
+        );
+        setFilteredDoctors(filtered);
+    }, [searchValue, doctors]);
+
+    const handleSearchChange = (event) => {
+        setSearchValue(event.target.value);
+    };
 
     return (
         <>
@@ -46,10 +104,23 @@ function Reservations() {
                         </Typography>
                     </div>
 
+                    <Box sx={{ flexGrow: 0 }}>
+                        <Search>
+                            <SearchIconWrapper>
+                                <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                                placeholder="Search specialty…"
+                                inputProps={{ 'aria-label': 'search' }}
+                                value={searchValue}
+                                onChange={handleSearchChange}
+                            />
+                        </Search>
+                    </Box>
 
-                    <Grid container spacing={2} sx={{ width: 'inherit', m: '1rem' }}>
-                        {doctors.map((doctor, index) => (
-                            <Grid item xs={12} sm={6} md={6} lg={3} key={index}>
+                    <Grid container spacing={1} sx={{ width: 'inherit', m: '1rem' }}>
+                        {filteredDoctors.map((doctor, index) => (
+                            <Grid item xs={12} sm={6} md={6} lg={3} key={index} sx={{margin: 'auto'}}> 
                                 <DoctorCard doctor={doctor} />
                             </Grid>
                         ))}
