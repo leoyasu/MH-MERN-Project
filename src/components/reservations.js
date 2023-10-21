@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -8,6 +8,8 @@ import { GetDoctors } from "../service/doctorService";
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
+import { useDispatch, useSelector } from "react-redux";
+import { loadDoctors , filterDoctors , setSearchValue} from "../redux/actions/doctorAction";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -50,28 +52,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 function Reservations() {
-    const [doctors, setDoctors] = useState([]);
-    const [searchValue, setSearchValue] = useState('');
-    const [filteredDoctors, setFilteredDoctors] = useState([]);
+    const searchValue = useSelector((store) => store.storeDoctors.searchValue);
+    const filteredDoctors = useSelector((store) => store.storeDoctors.filteredDoctors);
+    const dispatch = useDispatch()
 
     useEffect(() => {
         GetDoctors()
             .then((doctorData) => {
-                setDoctors(doctorData);
-                setFilteredDoctors(doctorData);
+                dispatch(loadDoctors(doctorData));
             })
             .catch((error) => console.error("Error setting doctors:", error));
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
-        const filtered = doctors.filter((doctor) =>
-            doctor.specialty.toLowerCase().startsWith(searchValue.toLowerCase())
-        );
-        setFilteredDoctors(filtered);
-    }, [searchValue, doctors]);
+        dispatch(filterDoctors(searchValue));
+    }, [dispatch, searchValue]);
+
 
     const handleSearchChange = (event) => {
-        setSearchValue(event.target.value);
+        dispatch(setSearchValue(event.target.value));
     };
 
     return (
@@ -120,7 +119,7 @@ function Reservations() {
 
                     <Grid container spacing={1} sx={{ width: 'inherit', m: '1rem' }}>
                         {filteredDoctors.map((doctor, index) => (
-                            <Grid item xs={12} sm={6} md={6} lg={3} key={index} sx={{margin: 'auto'}}> 
+                            <Grid item xs={12} sm={6} md={6} lg={4} key={index} sx={{ margin: 'auto' }}>
                                 <DoctorCard doctor={doctor} />
                             </Grid>
                         ))}
