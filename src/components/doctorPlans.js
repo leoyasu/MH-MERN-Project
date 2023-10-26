@@ -35,10 +35,9 @@ function DoctorPlans() {
                     textAlign: 'center',
                     bgcolor: 'primary.main',
                     border: 1,
-                    p: '1rem',
                 }}
             >
-                <Typography variant="h5" sx={{ fontFamily: 'Open Sans', color: 'black' }}>
+                <Typography variant="h5" sx={{ fontFamily: 'Open Sans', color: 'black',mt:'3rem' }}>
                     Select the perfect plan that aligns with your needs and preferences
                 </Typography>
                 <Grid
@@ -46,9 +45,10 @@ function DoctorPlans() {
                     spacing={1}
                     sx={{
                         width: '100%',
-                        m: '1rem',
                         justifyContent: 'center', 
                         alignItems: 'center',
+                        mt:'2rem',
+                        mb:'2rem' 
                     }}
                 >
                     {plans.map((plan, index) => (
