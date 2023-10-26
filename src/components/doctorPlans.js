@@ -1,24 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import DoctorPlanCard from "./doctorPlanCard";
 import { useLocation } from 'react-router-dom';
-import '../styles/doctorDetails.css';
+import '../styles/doctorPlans.css';
+import Typography from '@mui/material/Typography';
 
-
-function DoctorDetails() {
+function DoctorPlans() {
     const location = useLocation();
-    const {license} = location.state || {};
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    if (!license) {
-        return <div>No doctor data available.</div>;
-    }
+    const { plans } = location.state || {};
 
     return (
-        <Box className="doctorDetailsBox"
+        <Box className="doctorPlanBox"
             sx={{
                 width: '100vw',
                 minHeight: '80vh',
@@ -30,8 +23,7 @@ function DoctorDetails() {
         >
             <Box
                 sx={{
-                    maxWidth: '800px',
-                    minWidth: '300px',
+                    minWidth: '500px',
                     minHeight: '550px',
                     width: '100%',
                     backgroundColor: 'white',
@@ -46,18 +38,28 @@ function DoctorDetails() {
                     p: '1rem',
                 }}
             >
-                <Box>
-                    <Typography variant="h4" sx={{ fontFamily: 'Open Sans', mt: '1rem', color: 'black' }}>
-                    License: {license}
-                    </Typography>
-                    <Typography variant="h6" sx={{ fontFamily: 'Open Sans', textAlign: 'justify', p: '1rem', color: 'black' }}>
-                        "doctor plans"
-                    </Typography>
-                </Box>
+                <Typography variant="h5" sx={{ fontFamily: 'Open Sans', color: 'black' }}>
+                    Select the perfect plan that aligns with your needs and preferences
+                </Typography>
+                <Grid
+                    container
+                    spacing={1}
+                    sx={{
+                        width: '100%',
+                        m: '1rem',
+                        justifyContent: 'center', 
+                        alignItems: 'center',
+                    }}
+                >
+                    {plans.map((plan, index) => (
+                        <Grid item key={index}>
+                            <DoctorPlanCard plan={plan} />
+                        </Grid>
+                    ))}
+                </Grid>
             </Box>
         </Box>
     )
 }
 
-export default DoctorDetails;
-
+export default DoctorPlans;

@@ -12,7 +12,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 function DoctorCard({ doctor }) {
     return (
         <>
-            <Card sx={{ maxWidth: 345,minWidth:345, bgcolor: 'lightblue', border: 1 }}>
+            <Card sx={{ maxWidth: 345, minWidth: 345, bgcolor: 'lightblue', border: 1 }}>
                 <CardMedia
                     component="img"
                     alt="avatar"
@@ -38,15 +38,18 @@ function DoctorCard({ doctor }) {
                         to={{
                             pathname: '/doctorDetails',
                         }}
-                        state= {{name: doctor.name,
+                        state={{
+                            name: doctor.name,
                             lastName: doctor.lastName,
                             specialty: doctor.specialty,
                             description: doctor.description,
                             license: doctor.license,
-                            meetCost: doctor.meetCost,}}
+                            meetCost: doctor.meetCost,
+                            plans: doctor.plans
+                        }}
 
                     >
-                        <Button size="small" sx={{mt:'2rem'}}>Details</Button>
+                        <Button size="small" sx={{ mt: '2rem' }}>Details</Button>
                     </LinkRouter>
                 </CardActions>
             </Card>
