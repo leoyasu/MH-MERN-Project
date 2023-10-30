@@ -6,6 +6,7 @@ import Reservations from './components/reservations'
 import Home from './components/home'
 import DoctorDetails from './components/doctorDetails'
 import DoctorPlans from './components/doctorPlans'
+import SignIn from './components/signIn'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/signIn' element={<SignIn />} />
           <Route path='/reservations' element={<Reservations />} />
           <Route path='/doctorDetails' element={<DoctorDetails />} />
           <Route path='/doctorPlans' element={<DoctorPlans />} />

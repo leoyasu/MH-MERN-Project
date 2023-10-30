@@ -14,7 +14,14 @@ import MenuItem from '@mui/material/MenuItem';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import { Link as LinkRouter } from 'react-router-dom';
 
-const pages = ['Us', 'Log In', 'medical specialties', 'Join us', 'Contact'];
+const pages = [
+  { name: 'Us', route: '/' },
+  { name: 'Log In', route: '/signIn' },
+  { name: 'Medical Specialties', route: '/medical-specialties' },
+  { name: 'Join Us', route: '/join-us' },
+  { name: 'Contact', route: '/contact' },
+];
+
 const settings = ['Profile', 'Account', 'Log out'];
 
 function ResponsiveAppBar() {
@@ -96,9 +103,14 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))} */}
+              {pages.map((page) => (
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -123,7 +135,7 @@ function ResponsiveAppBar() {
             DoctorFinder
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {/* {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -131,6 +143,13 @@ function ResponsiveAppBar() {
               >
                 {page}
               </Button>
+            ))} */}
+            {pages.map((page) => (
+              <LinkRouter to={page.route} key={page.name} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                  {page.name}
+                </Button>
+              </LinkRouter>
             ))}
           </Box>
 
