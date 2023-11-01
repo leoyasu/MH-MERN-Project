@@ -17,7 +17,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 const pages = [
   { name: 'Us', route: '/' },
   { name: 'Log In', route: '/signIn' },
-  { name: 'Medical Specialties', route: '/medical-specialties' },
+  { name: 'Sign up', route: '/signUp' },
   { name: 'Join Us', route: '/join-us' },
   { name: 'Contact', route: '/contact' },
 ];

@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.signUpBox {
+    background-image: url('../images/internalMedicine.jpg');
+    background-size: cover;
+    background-repeat: repeat-y
+}

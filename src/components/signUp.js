@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../styles/signIn.css';
+import '../styles/signUp.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 
 function SignIn() {
     const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
         email: "",
         password: ""
     })
@@ -16,9 +18,7 @@ function SignIn() {
         if(!formData.email || !formData.password){
             alert("Complete los campos")
         } else {
-            // axios.post("http://localhost:5000/api/users/Auth/signIn",formData).then(
-            //     res => console.log(res)
-            // ).catch(err => err)
+
         }
     };
 
@@ -29,7 +29,7 @@ function SignIn() {
     }
 
     return (
-        <Box className="signInBox"
+        <Box className="signUpBox"
             sx={{
                 width: '100vw',
                 minHeight: '80vh',
@@ -51,8 +51,28 @@ function SignIn() {
                     border:1
                 }}
             >
-                <h1>Sign In</h1>
+                <h1>Sign Up</h1>
                 <form onSubmit={handleSubmit} style={{ width: '100%', maxWidth: '400px' }}>
+                <TextField
+                        id="firstName"
+                        label="firstName"
+                        name="firstName"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        margin="normal"
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        id="lastName"
+                        label="lastName"
+                        name="lastName"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        margin="normal"
+                        onChange={handleChange}
+                    />
                     <TextField
                         id="email"
                         label="Email"
@@ -75,7 +95,7 @@ function SignIn() {
                         onChange={handleChange}
                     />
                     <Button type="submit" variant="contained" fullWidth>
-                        Sign In
+                        Sign Up
                     </Button>
                 </form>
             </Box>
