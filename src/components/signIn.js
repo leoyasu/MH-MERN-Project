@@ -3,7 +3,8 @@ import '../styles/signIn.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import { Link as LinkRouter } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
 
 function SignIn() {
     const [formData, setFormData] = useState({
@@ -74,10 +75,22 @@ function SignIn() {
                         required
                         onChange={handleChange}
                     />
-                    <Button type="submit" variant="contained" fullWidth>
+                    <Button type="submit" variant="contained" sx={{ mt: '2rem'}} fullWidth>
                         Sign In
                     </Button>
                 </form>
+                <LinkRouter
+                    to={{
+                        pathname: '/signIn',
+                    }}
+                >
+                    <Typography
+                        underline="always"
+                        sx={{ mt: '2rem', cursor: 'pointer' }}
+                    >
+                        Forgot password?
+                    </Typography>
+                </LinkRouter>
             </Box>
         </Box>
     );
