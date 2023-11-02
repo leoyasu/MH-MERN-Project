@@ -3,23 +3,35 @@ import '../styles/signIn.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
 
 function SignIn() {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     })
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if(!formData.email || !formData.password){
             alert("Complete los campos")
         } else {
-            // axios.post("http://localhost:5000/api/users/Auth/signIn",formData).then(
-            //     res => console.log(res)
-            // ).catch(err => err)
+            const userData = {
+                email: formData.email,
+                password: formData.password,
+                from: "sign-up-form",
+                application: "medic api"
+            };
+            try {
+                const response = await axios.post('http://localhost:5000/api/users/Auth/signUp', { userData });
+                navigate('/reservations')
+                console.log(response)
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
+            }
         }
     };
 

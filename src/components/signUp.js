@@ -3,10 +3,12 @@ import '../styles/signUp.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
 
 function SignUp() {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -14,12 +16,25 @@ function SignUp() {
         password: ""
     })
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!formData.email || !formData.password) {
             alert("Complete los campos")
         } else {
-
+            const userData = {
+                fullName: formData.firstName + " " + formData.lastName,
+                email: formData.email,
+                password: formData.password,
+                from: "sign-up-form",
+                application: "medic api"
+            };
+            try {
+                const response = await axios.post('http://localhost:5000/api/users/Auth/signUp', { userData });
+                navigate('/signIn')
+                console.log(response)
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
+            }
         }
     };
 
@@ -56,7 +71,7 @@ function SignUp() {
                 <form onSubmit={handleSubmit} style={{ width: '100%', maxWidth: '400px' }}>
                     <TextField
                         id="firstName"
-                        label="firstName"
+                        label="First Name"
                         name="firstName"
                         variant="outlined"
                         fullWidth
@@ -66,7 +81,7 @@ function SignUp() {
                     />
                     <TextField
                         id="lastName"
-                        label="lastName"
+                        label="Last Name"
                         name="lastName"
                         variant="outlined"
                         fullWidth
@@ -108,7 +123,7 @@ function SignUp() {
                         underline="always"
                         sx={{ mt: '2rem', cursor: 'pointer' }}
                     >
-                        Already got an account? Log in
+                        Already have an account? Log in
                     </Typography>
                 </LinkRouter>
             </Box>
