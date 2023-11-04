@@ -26,16 +26,3 @@ export const doctorReducer = createReducer(initialState, (builder) => {
             return { ...state, searchValue: action.payload };
         });
 });
-
-// export const doctorReducer = createReducer(initialState, (builder) =>{
-//     return builder.addCase(loadDoctors, (state, action) => {
-//         const newState = {...state, doctors:action.payload, filteredDoctors:action.payload}
-//         return newState;
-//     }).addCase(filterDoctors, (state, action) => {
-//         const newState = {...state}
-//         const newFiltered = state.doctors.filter((doctor) =>
-//         doctor.specialty.toLowerCase().startsWith(action.payload.toLowerCase()))
-//         newState.filteredDoctors = newFiltered
-//         return newState
-//     })
-// })

@@ -6,37 +6,43 @@ import Button from '@mui/material/Button';
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
+import { useDispatch } from "react-redux";
+import { signInUser } from "../redux/actions/userActions";
 
 function SignIn() {
     const navigate = useNavigate()
-    const [formData, setFormData] = useState({
+    const [formDataSignIn, setFormData] = useState({
         email: "",
         password: ""
     })
+    const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(!formData.email || !formData.password){
+        if (!formDataSignIn.email || !formDataSignIn.password) {
             alert("Complete los campos")
         } else {
-            const userData = {
-                email: formData.email,
-                password: formData.password,
+            const formData = {
+                email: formDataSignIn.email,
+                password: formDataSignIn.password,
                 from: "sign-up-form",
                 application: "medic api"
             };
             try {
-                const response = await axios.post('http://localhost:5000/api/users/Auth/signUp', { userData });
-                navigate('/reservations')
+                const response = await axios.post('http://localhost:5000/api/users/Auth/signIn', { formData });
                 console.log(response)
+                if (response.status === 200) {
+                    dispatch(signInUser(formData))
+                    navigate('/reservations')
+                }
             } catch (error) {
-                console.error('Error en la solicitud:', error);
+                console.error('Error en la solicitud');
             }
         }
     };
 
     const handleChange = (e) => {
-        const aux = {...formData}
+        const aux = { ...formDataSignIn }
         aux[e.target.name] = e.target.value
         setFormData(aux);
     }
@@ -54,14 +60,14 @@ function SignIn() {
         >
             <Box
                 sx={{
-                    backgroundColor: '#e6e6e6', 
+                    backgroundColor: '#e6e6e6',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                     borderRadius: '8px',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     padding: '2rem',
-                    border:1
+                    border: 1
                 }}
             >
                 <h1>Sign In</h1>
@@ -87,7 +93,7 @@ function SignIn() {
                         required
                         onChange={handleChange}
                     />
-                    <Button type="submit" variant="contained" sx={{ mt: '2rem'}} fullWidth>
+                    <Button type="submit" variant="contained" sx={{ mt: '2rem' }} fullWidth>
                         Sign In
                     </Button>
                 </form>
