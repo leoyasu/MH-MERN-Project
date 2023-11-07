@@ -5,10 +5,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import Typography from '@mui/material/Typography';
-import axios from 'axios';
+import { useDispatch } from "react-redux";
+import { signUpUser } from "../redux/actions/userActions";
+import { signUpService } from '../service/userService'
 
 function SignUp() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -29,9 +32,21 @@ function SignUp() {
                 application: "medic api"
             };
             try {
-                const response = await axios.post('http://localhost:5000/api/users/Auth/signUp', { userData });
+                signUpService({ userData }).then((response) => {
+                    if (response.status === 200) {
+                        dispatch(
+                            signUpUser({
+                                message: response.data.message,
+                                success: response.data.success
+                            })
+                        );
+                        alert("Sign up successful!")
+                        navigate('/signIn');
+                    }
+                }).catch((error) => {
+                    console.error("Error:", error);
+                });
                 navigate('/signIn')
-                console.log(response)
             } catch (error) {
                 console.error('Error en la solicitud:', error);
             }

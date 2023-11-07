@@ -5,3 +5,9 @@ export const signInUser = createAction('signIn_user', (user) => {
         payload: user
     }
 })
+
+export const signUpUser = createAction('signUp_user', (user) => {
+    return {
+        payload: user
+    }
+})

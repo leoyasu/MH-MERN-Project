@@ -5,9 +5,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import Typography from '@mui/material/Typography';
-import axios from 'axios';
 import { useDispatch } from "react-redux";
 import { signInUser } from "../redux/actions/userActions";
+import { signInService } from "../service/userService"
 
 function SignIn() {
     const navigate = useNavigate()
@@ -29,14 +29,22 @@ function SignIn() {
                 application: "medic api"
             };
             try {
-                const response = await axios.post('http://localhost:5000/api/users/Auth/signIn', { formData });
-                console.log(response)
-                if (response.status === 200) {
-                    dispatch(signInUser(formData))
-                    navigate('/reservations')
-                }
+                signInService({ formData }).then((response) => {
+                    if (response.status === 200) {
+                        dispatch(
+                            signInUser({
+                                message: response.data.message,
+                                success: response.data.success
+                            })
+                        );
+                        alert("Sign in successful!")
+                        navigate('/reservations');
+                    }
+                }).catch((error) => {
+                    console.error("Error:", error);
+                });
             } catch (error) {
-                console.error('Error en la solicitud');
+                console.error('Error en la solicitud:', error);
             }
         }
     };
