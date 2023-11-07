@@ -30,7 +30,7 @@ function SignIn() {
             };
             try {
                 signInService({ formData }).then((response) => {
-                    if (response.status === 200) {
+                    if (response.success === true) {
                         dispatch(
                             signInUser({
                                 message: response.data.message,
@@ -39,6 +39,8 @@ function SignIn() {
                         );
                         alert("Sign in successful!")
                         navigate('/reservations');
+                    } else {
+                        alert("Fail to Sign in")
                     }
                 }).catch((error) => {
                     console.error("Error:", error);

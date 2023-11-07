@@ -33,7 +33,7 @@ function SignUp() {
             };
             try {
                 signUpService({ userData }).then((response) => {
-                    if (response.status === 200) {
+                    if (response.success === true) {
                         dispatch(
                             signUpUser({
                                 message: response.data.message,
@@ -42,11 +42,12 @@ function SignUp() {
                         );
                         alert("Sign up successful!")
                         navigate('/signIn');
+                    } else{
+                        alert("Sign Up failed, check your information")
                     }
                 }).catch((error) => {
                     console.error("Error:", error);
                 });
-                navigate('/signIn')
             } catch (error) {
                 console.error('Error en la solicitud:', error);
             }
