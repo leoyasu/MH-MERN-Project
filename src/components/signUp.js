@@ -21,7 +21,7 @@ function SignUp() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!formData.email || !formData.password) {
+        if (!formData.email || !formData.password || !formData.firstName || !formData.lastName) {
             alert("Complete los campos")
         } else {
             const userData = {
