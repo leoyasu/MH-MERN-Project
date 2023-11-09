@@ -33,7 +33,7 @@ function SignUp() {
             };
             try {
                 signUpService({ userData }).then((response) => {
-                    if (response.success === true) {
+                    if (response.data.success === true) {
                         dispatch(
                             signUpUser({
                                 message: response.data.message,
