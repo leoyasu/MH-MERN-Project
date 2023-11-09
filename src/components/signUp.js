@@ -42,7 +42,7 @@ function SignUp() {
                         );
                         alert("Sign up successful!")
                         navigate('/signIn');
-                    } else{
+                    } else {
                         alert("Sign Up failed, check your information")
                     }
                 }).catch((error) => {
@@ -126,6 +126,9 @@ function SignUp() {
                         required
                         onChange={handleChange}
                     />
+                    <Typography variant="body2" gutterBottom>
+                        Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.
+                    </Typography>
                     <Button type="submit" variant="contained" fullWidth sx={{ mt: '1rem' }}>
                         Sign Up
                     </Button>
