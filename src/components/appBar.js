@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import { Link as LinkRouter } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 const pages = [
   { name: 'Us', route: '/' },
@@ -25,6 +26,7 @@ const pages = [
 const settings = ['Profile', 'Account', 'Log out'];
 
 function ResponsiveAppBar() {
+  const user = useSelector((store) => store.storeUser.userSignIn);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -103,11 +105,6 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.name}</Typography>
@@ -135,22 +132,26 @@ function ResponsiveAppBar() {
             DoctorFinder
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))} */}
-            {pages.map((page) => (
-              <LinkRouter to={page.route} key={page.name} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-                  {page.name}
-                </Button>
-              </LinkRouter>
-            ))}
+            {user !== undefined ? (
+              pages.map(
+                (page) =>
+                  (page.name === 'Log In' || page.name === 'Sign up') ? null : (
+                    <LinkRouter to={page.route} key={page.name} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                        {page.name}
+                      </Button>
+                    </LinkRouter>
+                  )
+              )
+            ) : (
+              pages.map((page) => (
+                <LinkRouter to={page.route} key={page.name} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                    {page.name}
+                  </Button>
+                </LinkRouter>
+              ))
+            )}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

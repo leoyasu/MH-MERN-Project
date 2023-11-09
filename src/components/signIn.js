@@ -30,11 +30,17 @@ function SignIn() {
             };
             try {
                 signInService({ formData }).then((response) => {
-                    if (response.success === true) {
+                    if (response.data.success === true) {
                         dispatch(
                             signInUser({
+                                user: {
+                                    fullName: response.data.response.fullName,
+                                    email: response.data.response.email,
+                                    id: response.data.response.id,
+                                },
                                 message: response.data.message,
-                                success: response.data.success
+                                success: response.data.success,
+                                from: response.data.from
                             })
                         );
                         alert("Sign in successful!")
