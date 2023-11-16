@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/signUp.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import { useDispatch } from "react-redux";
 import { signUpUser } from "../redux/actions/userActions";
 import { signUpService } from '../service/userService'
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 function SignUp() {
     const navigate = useNavigate()
@@ -51,6 +53,41 @@ function SignUp() {
             } catch (error) {
                 console.error('Error en la solicitud:', error);
             }
+        }
+    };
+
+    const googleSubmit = (event) => {
+
+        const token = event.credentials;
+        const decoded = jwtDecode(token);
+
+        const userData = {
+            fullName: decoded.name,
+            email: decoded.email,
+            password: decoded.jti,
+            from: "google",
+            application: "medic api"
+        };
+
+        try {
+            signUpService({ userData }).then((response) => {
+                if (response.data.success === true) {
+                    dispatch(
+                        signUpUser({
+                            message: response.data.message,
+                            success: response.data.success
+                        })
+                    );
+                    alert("Sign up successful!")
+                    navigate('/signIn');
+                } else {
+                    alert("Sign Up failed, check your information")
+                }
+            }).catch((error) => {
+                console.error("Error:", error);
+            });
+        } catch (error) {
+            console.error('Error en la solicitud:', error);
         }
     };
 
@@ -145,6 +182,12 @@ function SignUp() {
                         Already have an account? Log in
                     </Typography>
                 </LinkRouter>
+                <GoogleLogin
+                    onSuccess={googleSubmit}
+                    onError={() => {
+                        console.log('Login Failed');
+                    }}
+                />;
             </Box>
         </Box>
     );
