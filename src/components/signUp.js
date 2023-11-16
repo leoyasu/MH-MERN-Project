@@ -42,10 +42,19 @@ function SignUp() {
                                 success: response.data.success
                             })
                         );
-                        alert("Sign up successful!")
+                        alert(response.data.message);
                         navigate('/signIn');
                     } else {
-                        alert("Sign Up failed, check your information")
+                        const messages = response.data.message;
+
+                        if (Array.isArray(messages)) {
+                            var concatenatedMessages = messages.map(function (item) {
+                                return item.message;
+                            }).join("\n");
+                            alert(concatenatedMessages);
+                        } else {
+                            alert(messages);
+                        }
                     }
                 }).catch((error) => {
                     console.error("Error:", error);

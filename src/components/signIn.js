@@ -45,16 +45,25 @@ function SignIn() {
                                 from: response.data.from
                             })
                         );
-                        alert("Sign in successful!")
+                        alert(response.data.message)
                         navigate('/reservations');
                     } else {
-                        alert("Fail to Sign in")
+                        const messages = response.data.message;
+
+                        if (Array.isArray(messages)) {
+                            var concatenatedMessages = messages.map(function (item) {
+                                return item.message;
+                            }).join("\n");
+                            alert(concatenatedMessages);
+                        } else {
+                            alert(messages);
+                        }
                     }
                 }).catch((error) => {
-                    console.error("Error:", error);
+                    console.error("Error:");
                 });
             } catch (error) {
-                console.error('Error en la solicitud:', error);
+                console.error('Error en la solicitud:');
             }
         }
     };
@@ -91,10 +100,10 @@ function SignIn() {
                             from: response.data.from
                         })
                     );
-                    alert("Sign in successful!")
+                    alert(response.data.message)
                     navigate('/reservations');
                 } else {
-                    alert("Fail to Sign in")
+                    alert(response.data.message)
                 }
             }).catch((error) => {
                 console.error("Error:", error);
