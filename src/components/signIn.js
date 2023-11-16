@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import { useDispatch } from "react-redux";
 import { signInUser } from "../redux/actions/userActions";
 import { signInService } from "../service/userService"
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 function SignIn() {
     const navigate = useNavigate()
@@ -62,6 +64,45 @@ function SignIn() {
         aux[e.target.name] = e.target.value
         setFormData(aux);
     }
+
+    const googleSubmit = (event) => {
+        const token = event.credential;
+        const decoded = jwtDecode(token);
+
+        const formData = {
+            email: decoded.email,
+            password: decoded.jti,
+            from: "google",
+            application: "medic api"
+        };
+
+        try {
+            signInService({ formData }).then((response) => {
+                if (response.data.success === true) {
+                    dispatch(
+                        signInUser({
+                            user: {
+                                fullName: response.data.response.fullName,
+                                email: response.data.response.email,
+                                id: response.data.response.id,
+                            },
+                            message: response.data.message,
+                            success: response.data.success,
+                            from: response.data.from
+                        })
+                    );
+                    alert("Sign in successful!")
+                    navigate('/reservations');
+                } else {
+                    alert("Fail to Sign in")
+                }
+            }).catch((error) => {
+                console.error("Error:", error);
+            });
+        } catch (error) {
+            console.error('Error en la solicitud:', error);
+        }
+    };
 
     return (
         <Box className="signInBox"
@@ -120,11 +161,17 @@ function SignIn() {
                 >
                     <Typography
                         underline="always"
-                        sx={{ mt: '2rem', cursor: 'pointer' }}
+                        sx={{ m: '2rem', cursor: 'pointer' }}
                     >
                         Forgot password?
                     </Typography>
                 </LinkRouter>
+                <GoogleLogin
+                    onSuccess={googleSubmit}
+                    onError={() => {
+                        console.log('Login Failed');
+                    }}
+                />;
             </Box>
         </Box>
     );

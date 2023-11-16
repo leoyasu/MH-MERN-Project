@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import '../styles/signUp.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -57,8 +57,7 @@ function SignUp() {
     };
 
     const googleSubmit = (event) => {
-
-        const token = event.credentials;
+        const token = event.credential;
         const decoded = jwtDecode(token);
 
         const userData = {
@@ -177,17 +176,17 @@ function SignUp() {
                 >
                     <Typography
                         underline="always"
-                        sx={{ mt: '2rem', cursor: 'pointer' }}
+                        sx={{ m: '2rem', cursor: 'pointer' }}
                     >
                         Already have an account? Log in
                     </Typography>
                 </LinkRouter>
                 <GoogleLogin
                     onSuccess={googleSubmit}
-                    onError={() => {
+                    onFailure={() => {
                         console.log('Login Failed');
                     }}
-                />;
+                />
             </Box>
         </Box>
     );
