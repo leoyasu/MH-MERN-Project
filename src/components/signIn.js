@@ -103,7 +103,16 @@ function SignIn() {
                     alert(response.data.message)
                     navigate('/reservations');
                 } else {
-                    alert(response.data.message)
+                    const messages = response.data.message;
+
+                    if (Array.isArray(messages)) {
+                        var concatenatedMessages = messages.map(function (item) {
+                            return item.message;
+                        }).join("\n");
+                        alert(concatenatedMessages);
+                    } else {
+                        alert(messages);
+                    }
                 }
             }).catch((error) => {
                 console.error("Error:", error);
