@@ -9,9 +9,19 @@ import DoctorPlans from './components/doctorPlans'
 import SignIn from './components/signIn'
 import SignUp from './components/signUp'
 import { useSelector } from "react-redux";
+import { useEffect } from 'react';
 
 function App() {
   const user = useSelector((store) => store.storeUser.userSignIn);
+  const userToken = localStorage.getItem('token')
+
+  useEffect(()=>{
+    if (!userToken){
+
+    } else {
+
+    }
+  },[])
 
   return (
     <div className="App">

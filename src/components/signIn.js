@@ -32,7 +32,9 @@ function SignIn() {
             };
             try {
                 signInService({ formData }).then((response) => {
+                    
                     if (response.data.success === true) {
+                        localStorage.setItem("signInToken", response.data.response.token)
                         dispatch(
                             signInUser({
                                 user: {
@@ -42,7 +44,7 @@ function SignIn() {
                                 },
                                 message: response.data.message,
                                 success: response.data.success,
-                                from: response.data.from
+                                from: response.data.from,
                             })
                         );
                         alert(response.data.message)
@@ -88,6 +90,7 @@ function SignIn() {
         try {
             signInService({ formData }).then((response) => {
                 if (response.data.success === true) {
+                    localStorage.setItem("signInToken", response.data.response.token)
                     dispatch(
                         signInUser({
                             user: {
